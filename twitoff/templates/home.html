@@ -13,7 +13,7 @@
   <article class="flex two" style="padding: 3em 1em;">
   {% block content %}
   <form action="/user" method="post">
-    <input type="text" name="user_name" placeholder="User to add">
+    <input type="text" name="user_name" placeholder="Add a user">
     <input type="submit" value="Add User">
   </form>
 
@@ -28,7 +28,7 @@
       <option value="{{ user.name }}">{{ user.name }}</option>
       {% endfor %}
     </select>
-    <input type="text" name="tweet_text" placeholder="Tweet text to predict">
+    <input type="text" name="tweet_text" placeholder="Enter a text to predict who wrote it!">
     <input type="submit" value="Compare Users">
   </form>
 

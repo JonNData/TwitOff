@@ -1,14 +1,14 @@
 # for app
 
-#from decouple import config
-from flask import Flask, render_template, request
-from models import DB, User
+from flask import Flask, render_template
+from .models import DB, User
 
-# make our app factory
+# app.py should just have app configuration and routing logic
+
 
 def create_app():
+    """ Create and configure an instance of the flask app"""
     app = Flask(__name__)
-
 
     # add config for database
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite3.db'
@@ -24,7 +24,7 @@ def create_app():
 
     @app.route('/about')
     def about():
-        return '<h1>About Page</h1>'
+        return '<h1>About Page</h1><p>Just trying to compare tweet behaviours!</p>'
 
     @app.route('/reset')
     def reset():
@@ -32,6 +32,8 @@ def create_app():
         DB.create_all()
         return 'Reset database!'
     return app
-    
+
+
 if __name__ == "__main__":
+    app = Flask(__name__)
     app.run(debug=True)
